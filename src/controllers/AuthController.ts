@@ -1,12 +1,13 @@
 import {BadRequestError, UnauthorizedError} from "../errors";
-import {User} from "../entities/UserEntity";
+import {UserEntity} from "../entities";
 import {AppDataSource} from "../ormconfig"
 import bcrypt from "bcrypt";
 import {Request, Response} from "express";
 import {HttpHeaders} from "../enums/HttpHeaders";
 import jwt from "jsonwebtoken";
+import {HttpStatus} from "../enums";
 
-const userRepository = AppDataSource.getRepository(User);
+const userRepository = AppDataSource.getRepository(UserEntity);
 export const signup = async (req: Request, res: Response) => {
     const {email, password, name} = req.body
     const existingUser = await userRepository.findOne({
@@ -19,7 +20,7 @@ export const signup = async (req: Request, res: Response) => {
     }
 
     const hashedPassword = await bcrypt.hash(password, 10)
-    const user = new User(email, hashedPassword, name)
+    const user = new UserEntity(email, hashedPassword, name)
     await userRepository.save(user)
 
     const userJwt = jwt.sign({
@@ -28,7 +29,7 @@ export const signup = async (req: Request, res: Response) => {
         name: user.name
     }, process.env.JWT_KEY!)
 
-    res.status(201).set(HttpHeaders.AUTHORIZATION, userJwt).json(user)
+    res.status(HttpStatus.CREATED).set(HttpHeaders.AUTHORIZATION, userJwt).json(user)
 }
 
 export const signin = async (req: Request, res: Response) => {
@@ -51,5 +52,5 @@ export const signin = async (req: Request, res: Response) => {
         name: existingUser.name
     }, process.env.JWT_KEY!)
 
-    res.status(200).set(HttpHeaders.AUTHORIZATION, userJwt).json(existingUser)
+    res.status(HttpStatus.OK).set(HttpHeaders.AUTHORIZATION, userJwt).json(existingUser)
 }
