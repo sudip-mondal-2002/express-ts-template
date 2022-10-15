@@ -22,3 +22,66 @@
 - `Dockerfile` can be used to get a production ready container image of the project.
 - `.dockerignore` tells which files to ignore while building the docker image.
 - The `src` directory contains the source code of the project.
+
+### The source directory
+
+```
+📂src
+ ┣ 📂controllers
+ ┣ 📂entities
+ ┣ 📂enums
+ ┣ 📂errors
+ ┣ 📂middlewares
+ ┣ 📂routes
+ ┣ 📜app.ts
+ ┣ 📜ormconfig.ts
+ ┗ 📜index.ts
+```
+
+### The enums directory
+
+```
+📂enums
+ ┣ 📜HttpHeaders.ts
+ ┣ 📜HttpStatus.ts
+ ┗ 📜index.ts
+```
+
+### The errors
+```
+📂errors
+ ┣ 📜BadRequestError.ts
+ ┣ 📜CustomError.ts
+ ┣ 📜DatabaseConnectionError.ts
+ ┣ 📜ForbiddenError.ts
+ ┣ 📜InternalServerError.ts
+ ┣ 📜NotFoundError.ts
+ ┣ 📜RequestValidationError.ts
+ ┣ 📜ServiceUnavailableError.ts
+ ┣ 📜UnauthorizedError.ts
+ ┗ 📜index.ts
+```
+
+### The middlewares
+```
+📂errors
+ ┣ 📜ErrorHandler.ts
+ ┣ 📜RequestValidator.ts
+ ┗ 📜index.ts
+```
+### Routes
+```
+📂routes
+ ┗ 📜index.ts
+```
+### Controllers
+```
+📂controllers
+ ┗ 📜index.ts
+```
+
+### Entities
+```
+📂entities
+ ┗ 📜index.ts
+```
