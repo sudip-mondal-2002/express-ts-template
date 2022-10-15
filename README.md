@@ -3,38 +3,10 @@
 
 ## Initial project structure
 
+### The home directory
 ```
 📦project
  ┣ 📂src
- ┃  ┣ 📂controllers
- ┃  ┃  ┣ 📜index.ts
- ┃  ┣ 📂entities
- ┃  ┃  ┣ 📜index.ts
- ┃  ┣ 📂enums
- ┃  ┃  ┣ 📜HttpHeaders.ts
- ┃  ┃  ┣ 📜HttpStatus.ts
- ┃  ┃  ┣ 📜index.ts
- ┃  ┣ 📂errors
- ┃  ┃  ┣ 📜BadRequestError.ts
- ┃  ┃  ┣ 📜CustomError.ts
- ┃  ┃  ┣ 📜DatabaseConnectionError.ts
- ┃  ┃  ┣ 📜ForbiddenError.ts
- ┃  ┃  ┣ 📜InternalServerError.ts
- ┃  ┃  ┣ 📜NotFoundError.ts
- ┃  ┃  ┣ 📜RequestValidationError.ts
- ┃  ┃  ┣ 📜ServiceUnavailableError.ts
- ┃  ┃  ┣ 📜UnauthorizedError.ts
- ┃  ┃  ┣ 📜index.ts
- ┃  ┣ 📂middlewares
- ┃  ┃  ┣ 📜ErrorHandler.ts
- ┃  ┃  ┣ 📜RequestValidator.ts
- ┃  ┃  ┣ 📜index.ts
- ┃  ┣ 📂routes
- ┃  ┃  ┣ 📜index.ts
- ┃  ┣ 📜app.ts
- ┃  ┣ 📜ormconfig.ts
- ┃  ┗ 📜index.ts
- ┣ 📂node_modules
  ┣ 📜.dockerignore
  ┣ 📜.eslintrc.json
  ┣ 📜.gitignore
@@ -43,3 +15,10 @@
  ┣ 📜package.json
  ┗ 📜tsconfig.json
  ```
+- `package.json` & `package-lock.json` contains the information about the npm metadata of the project like depencies, version, author, runnable scripts etc.
+- `tsconfig.json` contains the metadata about the typescript configuration for the project.
+- `.eslintrc.json` contains the data about linting rules while using eslint.
+- `.gitignore` describes which files to ignore when pushing the files to git.
+- `Dockerfile` can be used to get a production ready container image of the project.
+- `.dockerignore` tells which files to ignore while building the docker image.
+- The `src` directory contains the source code of the project.
