@@ -11,6 +11,8 @@ $ npm run build
 $ npm start
 ```
 
+## Simple guidelines
+Remove or change the License, Code of conduct and Contributing.md (and maybe readme too) before you start using this template
 
 ## Initial project structure
 
